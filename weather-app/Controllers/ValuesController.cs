@@ -4,22 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace OsWeatherApp.Controllers
+namespace weather_app.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : Controller
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<string> Get()
         {
             return new string[] { "Is OpenShift Working", "Yes!!! It seems to be working..." };
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public string Get(int id)
         {
             return "value";
         }
