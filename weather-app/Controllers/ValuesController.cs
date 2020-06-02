@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using weather_app.Helper;
 
 namespace weather_app.Controllers
 {
@@ -10,10 +11,11 @@ namespace weather_app.Controllers
     public class ValuesController : Controller
     {
         // GET api/values
-        [HttpGet]
+        [HttpGet] 
         public IEnumerable<string> Get()
         {
-            return new string[] { "Is OpenShift Working", "Yes!!! It seems to be working..." };
+            var result = ValuesHelper.ReadFile();
+            return new string[] { "Is OpenShift Working", "Yes!!! It seems to be working...", result };
         }
 
         // GET api/values/5
